@@ -22,6 +22,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 function initializeApp(app){
 	mongoose.connect(url,{ useNewUrlParser: true });
 	app.use('/polls', poll);
+	app.use('/', express.static(__dirname));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({extended: true}));
 }
