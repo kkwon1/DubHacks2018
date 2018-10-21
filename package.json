@@ -1,0 +1,23 @@
+{
+  "name": "dubhacks2018",
+  "version": "1.0.0",
+  "description": "Welcome to our dubhacks 2018 application",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkwon1/DubHacks2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkwon1/DubHacks2018/issues"
+  },
+  "homepage": "https://github.com/kkwon1/DubHacks2018#readme",
+  "dependencies": {
+    "mongoose": "^5.3.4"
+  }
+}
