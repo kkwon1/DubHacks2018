@@ -10,6 +10,17 @@ router.use(bodyParser.urlencoded({extended:true}));
 // get every single stored poll, then return the valid polls
 router.route("/")
     .get((req, res) => {
+        Poll.find().exec()
+        .then(polls => {
+            res.status(200).send(polls);
+        })
+        .catch(err => {
+            res.status(400).send(err)
+        });
+    })
+
+router.route("/valid")
+    .get((req, res) => {
         var query = req.query;
         var lat, long;
         if (query) {
