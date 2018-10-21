@@ -9,7 +9,7 @@ const poll = require('./routes/polls.js');
 initializeApp(app);
 
 app.get('/', (req, res) => { 
-    res.send('Hello World!')
+	res.sendfile("./views/index.html");
 });
 
 app.get('/test', (req, res) => {

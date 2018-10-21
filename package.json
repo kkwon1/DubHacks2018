@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/kkwon1/DubHacks2018#readme",
   "dependencies": {
-    "mongoose": "^5.3.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.3.4",
+    "nodemon": "^1.18.4",
+    "xmlhttprequest": "^1.8.0"
   }
 }
