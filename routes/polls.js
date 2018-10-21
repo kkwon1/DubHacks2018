@@ -12,7 +12,8 @@ router.use(bodyParser.urlencoded({extended:true}));
 // get every single stored poll
 router.route("/")
     .get((req, res) => {
-        Poll.find().exec()
+        var query = req.query;
+        Poll.find(query).exec()
         .then(polls => {
             res.status(200).send(polls);
         })

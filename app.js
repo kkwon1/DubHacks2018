@@ -9,7 +9,12 @@ const poll = require('./routes/polls.js');
 initializeApp(app);
 
 app.get('/', (req, res) => { 
-	res.sendfile("./views/index.html");
+	console.log(req["query"]["id"]);
+	if (req["query"]["id"] !== undefined) {
+		res.sendfile("./views/votes.html");
+	} else {
+		res.sendfile("./views/index.html");
+	}
 });
 
 app.get('/test', (req, res) => {
