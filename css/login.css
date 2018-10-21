@@ -1,0 +1,16 @@
+.top-container {
+    margin-top: 100px;
+}
+
+.text-name {
+    padding: 5px;
+}
+
+.text-input {
+    padding: 5px;
+}
+
+.login-button,
+.signup-button {
+    margin-top: 10px;
+}

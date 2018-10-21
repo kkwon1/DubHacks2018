@@ -22,6 +22,14 @@ app.get('/test', (req, res) => {
     res.send("test");
 });
 
+app.get('/login', (req, res) => {
+	res.sendFile(__dirname + "/views/login.html");
+})
+
+app.get('/signup', (req, res) => {
+	res.sendFile(__dirname + "/views/signup.html");
+})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 

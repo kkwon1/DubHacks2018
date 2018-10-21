@@ -32,6 +32,13 @@ userRouter.route('/')
         updateUserPolls(req, res, type);
     })
 
+userRouter.route('/usernames')
+    .get((req, res) => {
+        User.find({}, {username:1}).exec()
+        .then(users => res.status(200).json(users))
+        .catch(err => res.status(400).send(err));
+    })
+
 function updateUserPolls(req, res, type) {
     var listToUpdate = "pollsCreated";
     if (type === "vote") {
