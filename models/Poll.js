@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 
 var PollSchema = new mongoose.Schema({
-        _id: String,
         latitude: Number,
         longitude: Number,
         prompt: String,
