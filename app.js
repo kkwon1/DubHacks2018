@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 var url = 'mongodb://localhost:27017/POLLR';
 const poll = require('./routes/polls.js');
+const user = require('./routes/users.js');
 
 initializeApp(app);
 
@@ -20,9 +21,10 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 
 function initializeApp(app){
-	mongoose.connect(url,{ useNewUrlParser: true });
-	app.use('/polls', poll);
-	app.use('/', express.static(__dirname));
+    mongoose.connect(url,{ useNewUrlParser: true });
+    app.use('/polls', poll);
+    app.use('/', express.static(__dirname));
+    app.use('/users', user);
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({extended: true}));
 }

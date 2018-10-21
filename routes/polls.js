@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var Poll = require('../models/Poll.js');
-var Choice = require("../domain_models/Choice.js");
+var Poll = require('../schemas/Poll.js');
+var Choice = require("../models/Choice.js");
 var geoCalculator = require('../services/geoCalculator.js');
 var calculator = new geoCalculator();
 var bodyParser = require('body-parser');
@@ -9,10 +9,13 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended:true}));
 
-// get every single stored poll
+// GET: returns all the existing polls in the database
+// POST: creates a new poll
+// PUT: appends a new choice onto the poll
 router.route("/")
     .get((req, res) => {
-        Poll.find().exec()
+        var query = req.query;
+        Poll.find(query).exec()
         .then(polls => {
             res.status(200).send(polls);
         })
@@ -64,11 +67,10 @@ router.route("/valid")
     })
 
 
-// TODO:should prompt be unique?
 function insertChoice(req, res){
     var choice = new Choice(req.body.descriptor, 0);
     Poll.findOneAndUpdate(
-        {"prompt": req.body.prompt},
+        {"_id": req.body._id},
         { $push: { "choices": choice}},
         function(err, data){
             if(err != null){
