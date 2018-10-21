@@ -4,7 +4,7 @@ xhr.onload= function() {
         var inner = "";
         var json = JSON.parse(this.responseText);
         for (var j of json) {
-            inner += '<li class="list-group-item">' + j["prompt"] + '</li>'
+            inner += '<li class="list-group-item" onclick="location.href=\'http://localhost:3000/?id=' + j["_id"] +'\'">' + j["prompt"] + '</li>';
         }
         document.getElementById("list-container").innerHTML = inner;
     }
